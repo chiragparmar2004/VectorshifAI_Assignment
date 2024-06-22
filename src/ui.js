@@ -18,6 +18,7 @@ import SliderNode from "./nodes/sliderNode";
 import ToggleSwitchNode from "./nodes/toggleSwitchNode";
 
 import "reactflow/dist/style.css";
+import CustomConnectionLine from "./ui/customConnectionLine";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -117,9 +118,10 @@ export const PipelineUI = () => {
             nodeTypes={nodeTypes}
             proOptions={proOptions}
             snapGrid={[gridSize, gridSize]}
-            connectionLineType="smoothstep"
+            connectionLineType="simplebezier"
+            // connectionLineComponent={CustomConnectionLine} // Use custom connection line
           >
-            <Background color="#aaa" gap={gridSize} />
+            <Background color="#aaa" />
             <Controls />
             <MiniMap />
           </ReactFlow>

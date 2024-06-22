@@ -27,12 +27,14 @@ export const TextNode = ({ id, data }) => {
           top: `${
             (index + 1) * (90 / (currText.match(variablePattern)?.length || 1))
           }%`,
+          // left: -8,
         },
       })
     );
 
     setVariableHandles(variableMatches);
   }, [currText, id]);
+
   const handles = [
     {
       type: "source",
@@ -41,7 +43,7 @@ export const TextNode = ({ id, data }) => {
     },
     ...variableHandles,
   ];
-  console.log(handles);
+
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
@@ -54,6 +56,7 @@ export const TextNode = ({ id, data }) => {
       const newHeight = Math.min(inputRef.current.scrollHeight, maxHeight);
       inputRef.current.style.height = `${newHeight}px`;
       setHeight(newHeight);
+      updateNodeInternals(id); // Update node internals after adjusting height
     }
   };
 
@@ -62,15 +65,11 @@ export const TextNode = ({ id, data }) => {
   }, [currText]);
 
   return (
-    <AbstractNode
-      id={id}
-      type="Text"
-      handles={handles}
-      style={{ width: 200, height: height + 60 }}
-    >
-      <label>
+    <AbstractNode id={id} type="Text" handles={handles} style={{ width: 200 }}>
+      <label className="text-gray-500 block">
         Text:
         <textarea
+          className="border-[1px] rounded-md border-gray-300 focus:border-purple-500 focus:ring-purple-500"
           ref={inputRef}
           value={currText}
           onChange={handleTextChange}
