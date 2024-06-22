@@ -2,10 +2,10 @@ import React from "react";
 import { Handle, Position } from "reactflow";
 
 const AbstractNode = ({ id, type, handles, children, style }) => {
-  console.log(handles);
+  console.log("handles", handles);
   return (
     <div
-      className="max-w-sm border-purple-300 border-[1px] p-2 rounded-lg bg-white shadow-md transition-transform transform hover:border-[2px] duration-300"
+      className="border-purple-300 border-[1px] p-2 rounded-lg bg-white shadow-md transition-transform transform hover:border-[2px] duration-300"
       style={{
         width: "200px",
         ...style,
@@ -21,6 +21,7 @@ const AbstractNode = ({ id, type, handles, children, style }) => {
           type={handle.type}
           position={handle.position}
           id={handle.id}
+          title={handle.id} // This will show the handle id on hover
           style={{
             ...handle.style,
             left: handle.position === Position.Left ? -7 : undefined,

@@ -27,7 +27,6 @@ export const TextNode = ({ id, data }) => {
           top: `${
             (index + 1) * (90 / (currText.match(variablePattern)?.length || 1))
           }%`,
-          // left: -8,
         },
       })
     );
@@ -69,7 +68,7 @@ export const TextNode = ({ id, data }) => {
       <label className="text-gray-500 block">
         Text:
         <textarea
-          className="border-[1px] rounded-md border-gray-300 focus:border-purple-500 focus:ring-purple-500"
+          className="w-[99%] border mt-2 p-1 text-black rounded ring-1 ring-purple-300 hover:ring-purple-400  outline-none"
           ref={inputRef}
           value={currText}
           onChange={handleTextChange}

@@ -20,7 +20,7 @@ export const LLMNode = ({ id, data }) => {
 
   return (
     <AbstractNode id={id} type="LLM" handles={handles}>
-      <span>This is a LLM.</span>
+      <span>This is a LLM Node.</span>
     </AbstractNode>
   );
 };

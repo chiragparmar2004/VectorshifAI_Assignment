@@ -24,11 +24,20 @@ export const OutputNode = ({ id, data }) => {
     <AbstractNode id={id} type="Output" handles={handles}>
       <label>
         Name:
-        <input type="text" value={currName} onChange={handleNameChange} />
+        <input
+          type="text"
+          value={currName}
+          onChange={handleNameChange}
+          className="w-[99%] border mt-2 p-1 rounded ring-1 ring-purple-300 hover:ring-purple-400  outline-none"
+        />
       </label>
-      <label>
+      <label className="">
         Type:
-        <select value={outputType} onChange={handleTypeChange}>
+        <select
+          value={outputType}
+          onChange={handleTypeChange}
+          className="border mt-2 rounded "
+        >
           <option value="Text">Text</option>
           <option value="File">Image</option>
         </select>
